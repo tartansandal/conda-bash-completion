@@ -13,12 +13,14 @@ If you have already setup conda shell initialization via `conda init bash`, then
 restarting your shell should be sufficient to complete the integration.
 
 For conda versions prior to 4.8, you may have to add a modified version of the following
-to your `~/.bashrc` file:
+to the end of your `~/.bashrc` file:
 ```
 . ~/anaconda3/etc/profile.d/bash_completion.sh
 ```
 where `~/anaconda3` is the root of you ananconda or miniconda installation.
 
-If you already have a `bash-completion` package installed system-wide (see ), and already
-have your shell set up to load completions, then you could simply copy the `conda`
-completion script to the `~/.local/share/bash-completion/completions/` directory.
+If you already have a `bash-completion` package installed system-wide (see
+[Repology](https://repology.org/project/bash-completion) for a comprehensive list of
+operating system distributions, package names, and available versions), and already have
+your shell set up to load completions, then you could simply copy the `conda` completion
+script to the `~/.local/share/bash-completion/completions/` directory.
