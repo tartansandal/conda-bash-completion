@@ -24,3 +24,14 @@ If you already have a `bash-completion` package installed system-wide (see
 operating system distributions, package names, and available versions), and already have
 your shell set up to load completions, then you could simply copy the `conda` completion
 script to the `~/.local/share/bash-completion/completions/` directory.
+
+
+## Testing
+
+The tests require `bash-completion`, `pytest`, `pexpect` installed in an active conda environment.
+You could run something like:
+```
+conda activate devenv
+conda install -c tartansandal pytest pexpect bash-completion
+pytest
+```
