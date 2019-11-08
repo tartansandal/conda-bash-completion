@@ -5,22 +5,22 @@ options.  For example:
 
 ```
 $ conda <tab>
-activate     convert      develop      info         list         render       skeleton     verify
-build        create       env          init         metapackage  run          uninstall    
-clean        deactivate   help         inspect      package      search       update       
-config       debug        index        install      remove       server       upgrade      
+activate   convert     develop   info      list         render   skeleton    verify
+build      create      env       init      metapackage  run      uninstall    
+clean      deactivate  help      inspect   package      search   update       
+config     debug       index     install   remove       server   upgrade      
 $ conda
 
 $ conda d<tab>
-deactivate  debug       develop
+deactivate  debug  develop
 $ conda de
 
 $ conda --<tab>
---help     --version 
+--help  --version 
 $ conda --
 
 $ conda develop --<tab>
- --build_ext    --clean        --help         --name         --no-pth-file  --prefix       --uninstall
+ --build_ext  --clean  --help  --name  --no-pth-file  --prefix  --uninstall
 $ conda develop --
 
 $ conda env <tab>
@@ -28,7 +28,7 @@ create  export  list    remove  update
 $ conda env 
 
 $ conda env create --<tab>
---file     --force    --help     --json     --name     --prefix   --quiet    --verbose
+--file  --force  --help  --json --name  --prefix  --quiet  --verbose
 $ conda env create --
 ```
 
