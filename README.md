@@ -69,3 +69,12 @@ conda activate devenv
 conda install -c tartansandal pytest pexpect bash-completion
 pytest
 ```
+
+## Thanks!
+
+Thanks to Kale Franz (@kalefranz) for encouranging me to work on this in the first place :smile:.
+
+Thanks to Simon Frei (@imsodin) for raising and providing extensive help in debugging some difficult integration cases.
+
+Thanks to Mike Sarahan (@msarahan) for encourangment and discusions that lead to
+packaging this feature rather than hard wiring it into the bash initialization.
