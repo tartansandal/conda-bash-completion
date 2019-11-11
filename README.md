@@ -6,9 +6,9 @@ sub-command options.  For example:
 ```
 $ conda <tab>
 activate   convert     develop   info      list         render   skeleton    verify
-build      create      env       init      metapackage  run      uninstall    
-clean      deactivate  help      inspect   package      search   update       
-config     debug       index     install   remove       server   upgrade      
+build      create      env       init      metapackage  run      uninstall
+clean      deactivate  help      inspect   package      search   update
+config     debug       index     install   remove       server   upgrade
 $ conda
 
 $ conda d<tab>
@@ -16,7 +16,7 @@ deactivate  debug  develop
 $ conda de
 
 $ conda --<tab>
---help  --version 
+--help  --version
 $ conda --
 
 $ conda develop --<tab>
@@ -25,7 +25,7 @@ $ conda develop --
 
 $ conda env <tab>
 create  export  list    remove  update
-$ conda env 
+$ conda env
 
 $ conda env create --<tab>
 --file  --force  --help  --json --name  --prefix  --quiet  --verbose
