@@ -44,37 +44,51 @@ The easiest way to install this is via the `conda-bash-completion` package:
 conda install -c tartansandal conda-bash-completion
 ````
 
-If you have already setup conda shell initialization via `conda init bash`, then simply
-restarting your shell should be sufficient to complete the integration.
+If you have already setup conda shell initialization via `conda init bash`,
+then simply restarting your shell should be sufficient to complete the
+integration.
 
-If you have chosen to not automatically activate your default environment, then you may
-have to add the following to the end of your `~/.bashrc` file:
+If you have chosen to not automatically activate your default environment, then
+you may have to add the following to the end of your `~/.bashrc` file:
 
 ```
 source $CONDA_ROOT/etc/profile.d/bash_completion.sh
 ```
 
 If you already have a `bash-completion` package installed system-wide (see
-[Repology](https://repology.org/project/bash-completion) for a comprehensive list of
-operating system distributions, package names, and available versions), and already have
-your shell set up to load completions, then you could simply copy the `conda` completion
-script to the `~/.local/share/bash-completion/completions/` directory.
+[Repology](https://repology.org/project/bash-completion) for a comprehensive
+list of operating system distributions, package names, and available versions),
+and already have your shell set up to load completions, then you could simply
+copy the `conda` completion script to the
+`~/.local/share/bash-completion/completions/` directory.
 
 ## Testing
 
-The tests require `bash-completion`, `pytest`, `pexpect` installed in an active conda environment.
+The tests require `bash-completion`, `pytest`, `pexpect` installed in an active
+conda environment.
+
 You could run something like:
 ```
-conda activate devenv
+conda activate base
 conda install -c tartansandal pytest pexpect bash-completion
 pytest
 ```
 
+Ideally would like a dev enironment to be set up and used.
+
+Seem to have some problems with activation and changing the prompt, which confuses
+pexpect.
+
+At some point I'll figure out how to do that, but for release testing I'm just using my
+current environment.
+
 ## Thanks!
 
-Thanks to Kale Franz (@kalefranz) for encouranging me to work on this in the first place :smile:.
+Thanks to Kale Franz (@kalefranz) for encouranging me to work on this in the first place
+:smile:.
 
-Thanks to Simon Frei (@imsodin) for raising and providing extensive help in debugging some difficult integration cases.
+Thanks to Simon Frei (@imsodin) for raising and providing extensive help in debugging
+some difficult integration cases.
 
 Thanks to Mike Sarahan (@msarahan) for encourangment and discusions that lead to
 packaging this feature rather than hard wiring it into the bash initialization.
