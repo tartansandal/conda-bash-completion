@@ -68,9 +68,9 @@ class TestBashCompletion:
             '--uninstall',
         ]
 
-    @pytest.mark.xfail()
     @pytest.mark.complete("conda env ", require_cmd=False)
     def test_sub_comands(self, completion):
+        assert completion
         assert completion == [
             'create',
             'export',
