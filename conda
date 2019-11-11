@@ -19,6 +19,10 @@
 # late initialization of the CONDA_ROOT and CONDA_SOURCE environment
 # variables.
 
+# The extglob option is set by the bash_completion library anyway,
+# Setting it here to work around some rare edge cases.
+shopt -s extglob
+
 function __comp_conda_ensure_root() {
     if [[ -z "${CONDA_SOURCE-}" && -n "${CONDA_EXE-}" ]] ; then
         if [[ -n "${_CE_CONDA-}" && -n "${WINDIR-}" ]]; then
@@ -57,7 +61,7 @@ function __comp_conda_commands () {
     # check extra pluggins
     for f in $CONDA_ROOT/bin/conda-*
     do
-        if test -x "$f" -a ! -d "$f"
+        if [[ -x "$f" && ! -d "$f" ]]
         then
             \expr match "$f" '^.*/conda-\(.*\)'
         fi
