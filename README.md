@@ -1,7 +1,7 @@
 # Bash completion support for the `conda` command.
 
-We currently support completion for commands, options, sub-commands, sub-command
-options.  For example:
+We currently support completion for commands, options, sub-commands,
+sub-command options.  For example:
 
 ```
 $ conda <tab>
@@ -32,10 +32,10 @@ $ conda env create --<tab>
 $ conda env create --
 ```
 
-Completions are dynamically determined based on the plugins you have loaded and the help
-strings for the various commands. This make completion a little slower than it could be,
-however, this does allows the code to automatically adjust to future changes, and hence,
-minimising the need for maintenance.
+Completions are dynamically determined based on the plugins you have loaded and
+the help strings for the various commands. This make completion a little slower
+than it could be, however, this does allows the code to automatically adjust to
+future changes, and hence, minimising the need for maintenance.
 
 ## Installation
 
