@@ -189,6 +189,15 @@ _comp_conda()
                 # complete for paths
                 COMPREPLY=( $(compgen -fd -- "$cur" ) )
                 ;;
+            build)
+                if [[ $cur == ./* || $cur == /* ]]; then
+                  # complete for paths
+                  COMPREPLY=( $(compgen -d -- "$cur" ) )
+                else
+                  # complete for special keywords
+                  COMPREPLY+=( $(compgen -W 'purge purge-all' -- "$cur") )
+                fi
+                ;;
         esac
     fi
     if [[ -n $word_list ]]; then

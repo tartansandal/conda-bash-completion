@@ -68,7 +68,7 @@ class TestBashCompletion:
             '--uninstall',
         ]
 
-    #@pytest.mark.xfail()
+    @pytest.mark.xfail()
     @pytest.mark.complete("conda env ", require_cmd=False)
     def test_sub_comands(self, completion):
         assert completion == [
@@ -92,3 +92,9 @@ class TestBashCompletion:
             '--quiet',
             '--verbose',
         ]
+
+    @pytest.mark.complete("conda build ", require_cmd=True)
+    def test_build_sub_comands(self, completion):
+        assert completion
+        assert 'purge' in completion
+        assert 'purge-all' in completion
