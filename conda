@@ -185,14 +185,14 @@ _comp_conda()
                 # complete for directories
                 COMPREPLY=( $(compgen -d -- "$cur" ) )
                 ;;
-            verify)
+            verify|debug)
                 # complete for paths
                 COMPREPLY=( $(compgen -fd -- "$cur" ) )
                 ;;
             build)
                 if [[ $cur == ./* || $cur == /* ]]; then
                   # complete for paths
-                  COMPREPLY=( $(compgen -d -- "$cur" ) )
+                  COMPREPLY=( $(compgen -fd -- "$cur" ) )
                 else
                   # complete for special keywords
                   COMPREPLY+=( $(compgen -W 'purge purge-all' -- "$cur") )
