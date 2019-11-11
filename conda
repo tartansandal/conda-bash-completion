@@ -145,7 +145,7 @@ declare -A __comp_conda_cache
 # If conda has not been fully setup/activated yet, some of the above functions may fail
 # and print error messages. This is not helpful during normal usage, so we discard all
 # error output by default.
-__comp_conda_ensure_root 2>/dev/null
+__comp_conda_ensure_root 2>/dev/null || :
 
 _comp_conda()
 {
