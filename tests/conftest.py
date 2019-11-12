@@ -9,6 +9,7 @@ from typing import Iterable, List, Optional, Union
 
 import pexpect
 import pytest
+from pathlib import Path, PurePath
 
 
 PS1 = "(base) /@"
@@ -18,33 +19,50 @@ MAGIC_MARK = "__MaGiC-maRKz!__"
 @pytest.fixture(scope="class")
 def bash(request) -> pexpect.spawn:
 
-    logfile = None
-    if os.environ.get("BASHCOMP_TEST_LOGFILE"):
-        logfile = open(os.environ["BASHCOMP_TEST_LOGFILE"], "w")
-
-    testdir = os.path.abspath(
-        os.path.join(os.path.dirname(__file__), os.pardir)
-    )
-
     env = os.environ.copy()
+
+    logfile = None
+    if "BASHCOMP_TEST_LOGFILE" in env:
+        logfile = open(env["BASHCOMP_TEST_LOGFILE"], "w")
+
+    # all our testing assumes an active conda environment
+    assert 'CONDA_PREFIX' in env
+
+    # ... with the bash-completion package installed
+    bash_completion_file = (
+        Path(env['CONDA_PREFIX'])
+        / 'share' / 'bash-completion' / 'bash_completion'
+    )
+    assert bash_completion_file.exists()
+
+    test_dir = Path(PurePath(__file__).parent)
+
+    fixture_dir = test_dir / 'fixture'
+    assert fixture_dir.exists()
+
+    bashrc_file = fixture_dir / 'bashrc'
+    assert bashrc_file.exists()
+
+    conda_file = (test_dir / '..' / 'conda').resolve()
+    assert conda_file.exists()
+
+    os.chdir(fixture_dir)
+
     env.update(
         dict(
-            TESTDIR=testdir,
             PS1=PS1,
-            INPUTRC="%s/tests/config/inputrc" % testdir,
+            INPUTRC="%s/inputrc" % fixture_dir,
             TERM="dumb",
             LC_COLLATE="C",  # to match Python's default locale unaware sort
         )
     )
-
-    os.chdir(testdir)
 
     # Start bash
     bash = pexpect.spawn(
         "%s --norc" % os.environ.get("BASHCOMP_TEST_BASH", "bash"),
         maxread=os.environ.get("BASHCOMP_TEST_PEXPECT_MAXREAD", 20000),
         logfile=logfile,
-        cwd=testdir,
+        cwd=fixture_dir,
         env=env,
         encoding="utf-8",  # TODO? or native or...?
         # FIXME: Tests shouldn't depend on dimensions, but it's dificult to
@@ -55,11 +73,10 @@ def bash(request) -> pexpect.spawn:
     )
     bash.expect_exact(PS1)
 
-    # Load bashrc which loads bash_completion.sh and runs the conda setup
-    assert_bash_exec(bash, "source '%s/tests/config/bashrc'" % testdir)
-
-    # Load the conda completion file
-    assert_bash_exec(bash, "source '%s/conda'" % testdir)
+    # load environment for testing
+    assert_bash_exec(bash, f"source '{bashrc_file}'")
+    assert_bash_exec(bash, f"source '{bash_completion_file}'")
+    assert_bash_exec(bash, f"source '{conda_file}'")
 
     cmd = 'conda'
     request.cls.cmd = cmd
