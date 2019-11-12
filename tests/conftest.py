@@ -73,10 +73,15 @@ def bash(request) -> pexpect.spawn:
     )
     bash.expect_exact(PS1)
 
-    # load environment for testing
+    # Load environment for testing
     assert_bash_exec(bash, f"source '{bashrc_file}'")
     assert_bash_exec(bash, f"source '{bash_completion_file}'")
     assert_bash_exec(bash, f"source '{conda_file}'")
+    assert_bash_exec(
+        bash,
+        f"conda create -y -n 'conda-bash-comp-testing'",
+        want_output=True
+    )
 
     cmd = 'conda'
     request.cls.cmd = cmd
@@ -100,6 +105,11 @@ def bash(request) -> pexpect.spawn:
         pytest.fail("Could not load bash completion for conda")
 
     # Clean up
+    assert_bash_exec(
+        bash,
+        f"conda env remove -y -n 'conda-bash-comp-testing'",
+        want_output=True
+    )
     bash.close()
     if logfile:
         logfile.close()

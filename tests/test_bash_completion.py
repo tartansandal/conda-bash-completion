@@ -79,6 +79,11 @@ class TestBashCompletion:
             'update',
         ]
 
+    @pytest.mark.complete("conda activate ", require_cmd=False)
+    def test_environments(self, completion):
+        assert completion
+        assert 'conda-bash-comp-testing' in completion
+
     @pytest.mark.complete("conda env create --", require_cmd=True)
     def test_sub_comand_options(self, completion):
         assert completion
@@ -98,3 +103,17 @@ class TestBashCompletion:
         assert completion
         assert 'purge' in completion
         assert 'purge-all' in completion
+
+    @pytest.mark.complete("conda build --config-file ", require_cmd=True)
+    def test_filename(self, completion):
+        assert completion
+        assert sorted(completion) == [
+            'bashrc',
+            'fake-package.tar.bz2',
+            'inputrc',
+        ]
+
+    # @pytest.mark.complete("conda verify ", require_cmd=True)
+    # def test_verify(self, completion):
+    #     assert completion
+    #     assert completion == ['fake-package.tar.bz2']
