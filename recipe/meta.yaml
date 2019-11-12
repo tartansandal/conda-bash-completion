@@ -16,13 +16,12 @@ requirements:
   run:
     - bash-completion
 
-# FIXME requires an active environment to load
-# test:
-#     source_files:
-#       - conda
-#     commands:
-#       # Ensure the library loads without error
-#       - bash -vxe conda
+test:
+    source_files:
+      - conda
+    commands:
+      # Ensure the library loads without error
+      - bash -e conda
 
 about:
   home: https://github.com/tartansandal/conda-bash-completion
