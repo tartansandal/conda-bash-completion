@@ -48,12 +48,16 @@ If you have already setup conda shell initialization via `conda init bash`,
 then simply restarting your shell should be sufficient to complete the
 integration.
 
-If you have chosen to not automatically activate your default environment, then
-you may have to add the following to the end of your `~/.bashrc` file:
+Some uses prefer to disable the automatic activation of their `base` environment by
+setting he flag `auto_activate_base` to `false` in their `~/.condarc` file.
 
+These users will need to append something like the following
 ```
+# Set CONDA_ROOT to the path to your Anaconda/Miniconda installation directory
+CONDA_ROOT=~/anaconda3
 source $CONDA_ROOT/etc/profile.d/bash_completion.sh
 ```
+to their `~/.bashrc` script in order to have the completion code loaded.
 
 If you already have a `bash-completion` package installed system-wide (see
 [Repology](https://repology.org/project/bash-completion) for a comprehensive
