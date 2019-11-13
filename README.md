@@ -53,8 +53,7 @@ setting he flag `auto_activate_base` to `false` in their `~/.condarc` file.
 
 These users will need to append something like the following
 ```
-# Set CONDA_ROOT to the path to your Anaconda/Miniconda installation directory
-CONDA_ROOT=~/anaconda3
+CONDA_ROOT=~/anaconda3   # <- set to your Anaconda/Miniconda installation directory
 source $CONDA_ROOT/etc/profile.d/bash_completion.sh
 ```
 to their `~/.bashrc` script in order to have the completion code loaded.
