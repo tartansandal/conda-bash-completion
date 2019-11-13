@@ -49,7 +49,7 @@ then simply restarting your shell should be sufficient to complete the
 integration.
 
 Some uses prefer to disable the automatic activation of their `base` environment by
-setting he flag `auto_activate_base` to `false` in their `~/.condarc` file.  These users
+setting `auto_activate_base: false` in their `~/.condarc` file.  These users
 will need to append something like the following
 ```
 CONDA_ROOT=~/anaconda3   # <- set to your Anaconda/Miniconda installation directory
