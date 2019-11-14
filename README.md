@@ -39,13 +39,18 @@ future changes, and hence, minimising the need for maintenance.
 
 ## Installation
 
-The easiest way to install this is via the `conda-bash-completion` package:
+There are two supported ways to install this feature:
+
+### Method 1: Using the `conda-bash-completion` package
+
+The easiest way to install this feature is via the `conda-bash-completion` package:
 ```
 conda install -c tartansandal conda-bash-completion
-````
-
-If you have already setup conda shell initialization via `conda init bash`,
-then simply restarting your shell should be sufficient to complete the
+```
+This installs the completion code and a specially patched version of the
+(`bash-completion`)[https://github.com/scop/bash-completion] library into you default
+environment.  If you have already set up conda shell initialization via `conda init
+bash`, then simply restarting your shell should be sufficient to complete the
 integration.
 
 Some uses prefer to disable the automatic activation of their `base` environment by
@@ -53,16 +58,20 @@ setting `auto_activate_base: false` in their `~/.condarc` file.  These users
 will need to append something like the following
 ```
 CONDA_ROOT=~/anaconda3   # <- set to your Anaconda/Miniconda installation directory
-source $CONDA_ROOT/etc/profile.d/bash_completion.sh
+if [[ -r $CONDA_ROOT/etc/profile.d/bash_completion.sh ]]; then
+    source $CONDA_ROOT/etc/profile.d/bash_completion.sh
+fi
 ```
 to their `~/.bashrc` script in order to have the completion code loaded.
 
+### Method 2: Manual
+
 If you already have a `bash-completion` package installed system-wide (see
-[Repology](https://repology.org/project/bash-completion) for a comprehensive
-list of operating system distributions, package names, and available versions),
-and already have your shell set up to load completions, then you could simply
-copy the `conda` completion script to the
-`~/.local/share/bash-completion/completions/` directory.
+[Repology](https://repology.org/project/bash-completion) for a comprehensive list of
+operating system distributions, package names, and available versions), and already have
+your shell set up to load completions, then you could simply copy the `conda` completion
+script to the `~/.local/share/bash-completion/completions/` directory.
+
 
 ## Testing
 
