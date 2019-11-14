@@ -41,7 +41,7 @@ future changes, and hence, minimising the need for maintenance.
 
 There are two supported ways to install this feature:
 
-### Method 1: Using the `conda-bash-completion` package
+### Method 1: Using `conda`
 
 The easiest way to install this feature is via the `conda-bash-completion` package:
 ```
@@ -64,7 +64,7 @@ fi
 ```
 to their `~/.bashrc` script in order to have the completion code loaded.
 
-### Method 2: Manual
+### Method 2: Manually
 
 If you already have the [`bash-completion`](https://github.com/scop/bash-completion)
 library installed system-wide (see
