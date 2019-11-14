@@ -48,7 +48,7 @@ The easiest way to install this feature is via the `conda-bash-completion` packa
 conda install -c tartansandal conda-bash-completion
 ```
 This installs the completion code and a specially patched version of the
-(`bash-completion`)[https://github.com/scop/bash-completion] library into you default
+[`bash-completion`](https://github.com/scop/bash-completion) library into you default
 environment.  If you have already set up conda shell initialization via `conda init
 bash`, then simply restarting your shell should be sufficient to complete the
 integration.
