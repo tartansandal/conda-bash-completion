@@ -66,7 +66,8 @@ to their `~/.bashrc` script in order to have the completion code loaded.
 
 ### Method 2: Manual
 
-If you already have a `bash-completion` package installed system-wide (see
+If you already have the [`bash-completion`](https://github.com/scop/bash-completion)
+library installed system-wide (see
 [Repology](https://repology.org/project/bash-completion) for a comprehensive list of
 operating system distributions, package names, and available versions), and already have
 your shell set up to load completions, then you could simply copy the `conda` completion
