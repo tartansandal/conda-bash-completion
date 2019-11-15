@@ -168,12 +168,8 @@ _comp_conda()
                 word_list=$(__comp_conda_env_commands 2>/dev/null)
                 ;;
             activate)
-                if [[ $cur == ./* || $cur == /* ]]; then
-                    # complete for paths
-                    COMPREPLY=( $(compgen -d -- "$cur" ) )
-                else
-                    word_list=$(__comp_conda_envs 2>/dev/null)
-                fi
+                _filedir -d                     # environment directories
+                word_list=$(__comp_conda_envs 2>/dev/null)
                 ;;
             remove|uninstall|upgrade|update)
                 word_list=$(__comp_conda_packages 2>/dev/null)
@@ -182,30 +178,22 @@ _comp_conda()
                 word_list=$(__comp_conda_envs 2>/dev/null)
                 ;;
             --*-file|--file|--which|convert)
-                # complete for files
-                COMPREPLY=( $(compgen -f -- "$cur" ) )
+                _filedir                        # filenames
                 ;;
             --*-dir|--*-folder|--subdir|--prefix|--cwd|index)
-                # complete for directories
-                COMPREPLY=( $(compgen -d -- "$cur" ) )
+                _filedir -d                     # directories
                 ;;
             verify|debug)
-                # complete for paths
-                COMPREPLY=( $(compgen -fd -- "$cur" ) )
+                _filedir 'tar.bz2'              # package paths and directories
                 ;;
             build)
-                if [[ $cur == ./* || $cur == /* ]]; then
-                  # complete for paths
-                  COMPREPLY=( $(compgen -fd -- "$cur" ) )
-                else
-                  # complete for special keywords
-                  COMPREPLY+=( $(compgen -W 'purge purge-all' -- "$cur") )
-                fi
+                _filedir 'tar.bz2'              # package paths and directories
+                word_list='purge purge-all'     # special keywords
                 ;;
         esac
     fi
     if [[ -n $word_list ]]; then
-        COMPREPLY=( $(compgen -W '$word_list' -- "$cur" ) )
+        COMPREPLY+=( $(compgen -W "$word_list" -- "$cur") )
     fi
 } &&
 complete -F _comp_conda conda
