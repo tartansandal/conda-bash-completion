@@ -1,7 +1,7 @@
 import pytest
 
 
-class TestBashCompletion:
+class TestConda:
     @pytest.mark.complete("conda")
     def test_base_command(self, completion):
         assert completion
