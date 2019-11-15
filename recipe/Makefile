@@ -2,7 +2,7 @@
 
 .PHONY: build install convert upload
 
-VERSION=1.4-1
+VERSION=1.5-1
 PACKAGE=conda-bash-completion-$(VERSION).tar.bz2
 
 build:
