@@ -40,6 +40,7 @@ class TestConda:
             'search',
             'server',
             'skeleton',
+            'smithy',
             'uninstall',
             'update',
             'upgrade',
@@ -72,11 +73,13 @@ class TestConda:
     def test_sub_comands(self, completion):
         assert completion
         assert completion == [
+            'config',
             'create',
             'export',
             'list',
             'remove',
             'update',
+            'vars',
         ]
 
     @pytest.mark.complete("conda activate ")
@@ -118,3 +121,32 @@ class TestConda:
     def test_verify(self, completion):
         assert completion
         assert completion == ['fake-package.tar.bz2']
+
+    @pytest.mark.complete("conda config ")
+    def test_config(self, completion):
+        assert completion == []
+
+    @pytest.mark.complete("conda config --")
+    def test_config_options(self, completion):
+        assert completion
+        assert completion == [
+            '--append',
+            '--describe',
+            '--env',
+            '--file',
+            '--get',
+            '--help',
+            '--json',
+            '--prepend',
+            '--quiet',
+            '--remove',
+            '--remove-key',
+            '--set',
+            '--show',
+            '--show-sources',
+            '--stdin',
+            '--system',
+            '--validate',
+            '--verbose',
+            '--write-default',
+        ]
