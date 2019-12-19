@@ -45,7 +45,7 @@ There are two supported ways to install this feature:
 
 The easiest way to install this feature is via the `conda-bash-completion` package:
 ```
-conda install -c tartansandal conda-bash-completion
+conda install -c conda-forge conda-bash-completion
 ```
 This installs the completion code and a specially patched version of the
 [`bash-completion`](https://github.com/scop/bash-completion) library into you default
