@@ -35,7 +35,7 @@ $ conda env create --
 *Note: on some systems you have to hit `<tab>` twice to trigger completion.*
 
 Completions are dynamically determined based on the plugins you have loaded and
-the help strings for the various commands. This make completion a little slower
+the help strings for the various commands. This makes completion a little slower
 than it could be, however, it does allows the code to automatically adjust to
 future changes, and hence, minimising the need for maintenance.
 
