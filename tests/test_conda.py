@@ -122,7 +122,6 @@ class TestConda:
             'inputrc',
         ]
 
-    @pytest.mark.xfail(reason='This works when manually testing')
     @pytest.mark.complete("conda verify ")
     def test_verify(self, completion):
         assert completion
