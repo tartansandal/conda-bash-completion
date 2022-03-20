@@ -32,7 +32,7 @@ $ conda env create --<tab>
 $ conda env create --
 ```
 
-*Note: on some systems you have to hit `<tab>` twice to trigger completion.*
+> Note: on some systems you have to hit `<tab>` twice to trigger completion.
 
 Completions are dynamically determined based on the plugins you have loaded and
 the help strings for the various commands. This makes completion a little slower
@@ -45,17 +45,18 @@ There are two supported ways to install this feature:
 
 ### Method 1: Using `conda`
 
-The easiest way to install this feature is via the `conda-bash-completion` package:
+The easiest way to install this feature is via the `conda-bash-completion`
+package:
 
 ```bash
 conda install -c conda-forge conda-bash-completion
 ```
 
 This installs the completion code and a specially patched version of the
-[`bash-completion`](https://github.com/scop/bash-completion) library into you default
-environment.  If you have already set up conda shell initialization via `conda init
-bash`, then simply restarting your shell should be sufficient to complete the
-integration.
+[`bash-completion`](https://github.com/scop/bash-completion) library into you
+default environment.  If you have already set up conda shell initialization via
+`conda init bash`, then simply restarting your shell should be sufficient to
+complete the integration.
 
 Some uses prefer to disable the automatic activation of their `base` environment
 by setting `auto_activate_base: false` in their `~/.condarc` file.  These users
@@ -95,8 +96,8 @@ pytest
 
 Ideally would like a dev enironment to be set up and used.
 
-Seem to have some problems with activation and changing the prompt, which confuses
-pexpect.
+Seem to have some problems with activation and changing the prompt, which
+confuses pexpect.
 
 At some point I'll figure out how to do that, but for release testing I'm just
 using my current environment.
@@ -106,8 +107,8 @@ using my current environment.
 Thanks to Kale Franz (@kalefranz) for encouranging me to work on this in the
 first place :smile:.
 
-Thanks to Simon Frei (@imsodin) for raising and providing extensive help in debugging
-some difficult integration cases.
+Thanks to Simon Frei (@imsodin) for raising and providing extensive help in
+debugging some difficult integration cases.
 
 Thanks to Mike Sarahan (@msarahan) for encourangment and discusions that lead to
 packaging this feature rather than hard wiring it into the bash initialization.
