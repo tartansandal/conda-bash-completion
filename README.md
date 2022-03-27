@@ -71,7 +71,9 @@ else
 fi
 ```
 
-to their `~/.bashrc` script in order to have the completion code loaded.
+to their `~/.bashrc` script in order to have the completion code loaded. Note,
+the above block **must** be run after any existing bash-completion setup and
+after the conda initialization block.
 
 ### Method 2: Manually
 
