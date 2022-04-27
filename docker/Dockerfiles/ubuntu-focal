@@ -11,3 +11,6 @@ RUN set -xe; \
         curl            \
         sudo            \
         bash-completion
+
+RUN set -xe; \
+    curl -sO https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh

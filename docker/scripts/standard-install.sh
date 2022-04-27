@@ -13,14 +13,14 @@ sudo --user test-cbc --login -- <<EOF
 set -xe
 
 # Download and install miniconda
-curl -sO https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh -b
+bash /Miniconda3-latest-Linux-x86_64.sh -b
 
 # Setup conda with defaults
 $conda init
 
 # Install conda-bash-completion
 $conda install -c conda-forge conda-bash-completion
+
 EOF
 
 # Get a new shell with the above enviroment

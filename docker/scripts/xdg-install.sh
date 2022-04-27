@@ -12,13 +12,11 @@ sudo --user test-cbc --login -- <<EOF
 # Echo commands and abort on errors
 set -xe
 
-# Download and install miniconda
-curl -sO https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh -b
+# Install miniconda
+bash /Miniconda3-latest-Linux-x86_64.sh -b
 
 # Setup conda without default activation
 $conda init
-$conda config --set auto_activate_base False
 
 # Install conda-bash-completion into the XDG directory outside of miniconda3 
 mkdir -p .local/share/bash-completion/completions
