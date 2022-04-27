@@ -37,8 +37,9 @@ function __comp_conda_ensure_root() {
         :    import conda
         :    print(os.path.dirname(conda.__file__))
         "
+        script="${script//        :    /}"
         # don't assume an active base environment
-        CONDA_SOURCE=$(conda activate base; python -c "${script//        :    /}")
+        CONDA_SOURCE=$(conda activate base; python -c "$script")
     fi
 }
 
@@ -84,14 +85,16 @@ function __comp_conda_env_commands() {
 
 function __comp_conda_envs() {
     \local script="
-    :    from __future__ import print_function;
-    :    import json, os, sys;
-    :    from os.path import isdir, join;
+    :    from __future__ import print_function
+    :    import json, os, sys
+    :    from os.path import isdir, join
     :    print('\n'.join(
     :       d for ed in json.load(sys.stdin)['envs_dirs'] if isdir(ed)
-    :       for d in os.listdir(ed) if isdir(join(ed, d))));
+    :       for d in os.listdir(ed) if isdir(join(ed, d)))
+    :    )
     "
-    conda config --json --show envs_dirs | python -c "${script//    :    /}"
+    script="${script//    :    /}"
+    conda config --json --show envs_dirs | $CONDA_PYTHON_EXE -c "$script"
 }
 
 function __comp_conda_packages() {
