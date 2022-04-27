@@ -22,6 +22,8 @@ bash /Miniconda3-latest-Linux-x86_64.sh -b
 $conda init
 $conda config --set auto_activate_base False
 
+cat /scripts/bashrc-no-base.sh >> ~/.bashrc
+
 # Install conda-bash-completion
 $conda install -c conda-forge conda-bash-completion
 
