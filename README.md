@@ -116,3 +116,5 @@ debugging some difficult integration cases.
 
 Thanks to Mike Sarahan (@msarahan) for encourangment and discusions that lead to
 packaging this feature rather than hard wiring it into the bash initialization.
+
+Special thanks to all users who have provided feeback on issues and bugs. :smile:
