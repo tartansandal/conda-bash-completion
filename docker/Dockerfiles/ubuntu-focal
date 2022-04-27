@@ -1,0 +1,13 @@
+FROM ubuntu:focal
+
+# ensure we have an up to date system
+RUN set -xe; \
+    apt-get update;     \
+    apt-get upgrade -y;
+
+# ensure dependencies are installed
+RUN set -xe; \
+    apt-get install -y  \
+        curl            \
+        sudo            \
+        bash-completion

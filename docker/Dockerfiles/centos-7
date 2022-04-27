@@ -1,0 +1,13 @@
+FROM centos:7
+
+# XXX:  for some reason this takes a very long time!
+#
+# ensure we have an up to date system
+#RUN set -xe; \
+#    yum upgrade -y;
+
+# ensure dependencies are installed
+RUN set -xe; \
+    yum install -y \
+        curl \
+        bash-completion
