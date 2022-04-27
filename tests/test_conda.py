@@ -93,6 +93,7 @@ class TestConda:
         assert completion
         assert completion == [
             '--dry-run',
+            '--experimental-solver',
             '--file',
             '--force',
             '--help',
