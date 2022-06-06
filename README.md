@@ -39,7 +39,15 @@ the help strings for the various commands. This makes completion a little slower
 than it could be, however, it does allows the code to automatically adjust to
 future changes, and hence, minimising the need for maintenance.
 
+> Note: MacOS has `bash-3.2` (from 2007) installed by default. The upstream
+> [`bash-completion`](https://github.com/scop/bash-completion) library, which we
+> depend on, requires a `bash >= 4.2`, so you will need to upgrade your bash if
+> you want to use this script. Upgrading bash is possible, either via homebrew
+> or conda, or other methods, but you probably want to search for how to change
+> the location of your shell in MacOS.
+
 ## Installation
+
 
 There are two supported ways to install this feature:
 
