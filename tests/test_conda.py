@@ -84,9 +84,16 @@ class TestConda:
         ]
 
     @pytest.mark.complete("conda activate ")
-    def test_environments(self, completion):
+    def test_activate_environment(self, completion):
         assert completion
         assert 'conda-bash-comp-testing' in completion
+        assert 'fixture/' not in completion
+
+    @pytest.mark.complete("conda activate ../")
+    def test_activate_path(self, completion):
+        assert completion
+        assert 'conda-bash-comp-testing' not in completion
+        assert 'fixture/' in completion
 
     @pytest.mark.complete("conda env create --")
     def test_sub_comand_options(self, completion):

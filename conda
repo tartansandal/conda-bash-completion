@@ -179,8 +179,12 @@ _comp_conda()
                 word_list=$(__comp_conda_env_commands 2>/dev/null)
                 ;;
             activate)
-                _filedir -d                     # environment directories
-                word_list=$(__comp_conda_envs 2>/dev/null)
+                if [[ $cur == */* ]]
+                then
+                    _filedir -d  # environment directories
+                else
+                    word_list=$(__comp_conda_envs 2>/dev/null)
+                fi
                 ;;
             remove|uninstall|upgrade|update)
                 word_list=$(__comp_conda_packages 2>/dev/null)
