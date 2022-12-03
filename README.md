@@ -82,6 +82,21 @@ to their `~/.bashrc` script in order to have the completion code loaded. Note,
 the above block **must** be run after any existing bash-completion setup and
 after the conda initialization block.
 
+<details>
+<summary>Note for Arch linux users and AUR installation</summary>
+
+ If you have installed Conda using AUR (Arch User Repository) please note that in some cases you should install `conda-bash-completion` as root and place following in your `~/.bashrc`
+```
+CONDA_ROOT=/opt/miniconda3   # <- set to your Anaconda/Miniconda installation directory
+if [[ -r $CONDA_ROOT/etc/profile.d/bash_completion.sh ]]; then
+    source $CONDA_ROOT/etc/profile.d/bash_completion.sh
+else
+    echo "WARNING: could not find conda-bash-completion setup script"
+fi
+```
+Tested: [miniconda3](https://aur.archlinux.org/packages/miniconda3)
+</details>
+
 ### Method 2: Manually
 
 If you already have the
