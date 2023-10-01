@@ -165,6 +165,9 @@ _comp_conda()
 
     __comp_conda_ensure_root 2>/dev/null
 
+    \local arg
+    _get_first_arg
+
     \local word_list cmd_str
     if [[ $cur == -* ]]; then
         # get the current list of commands as a string sans options
@@ -204,6 +207,11 @@ _comp_conda()
             build)
                 _filedir 'tar.bz2'              # package paths and directories
                 word_list='purge purge-all'     # special keywords
+                ;;
+            -f)
+                if [[ $arg == env ]]; then
+                     _filedir
+                fi
                 ;;
         esac
     fi

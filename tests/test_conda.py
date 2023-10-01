@@ -48,6 +48,10 @@ class TestConda:
             'verify',
         ]
 
+    @pytest.mark.complete("conda clean -f ")
+    def test_clean_f(self, completion):
+        assert not completion
+
     @pytest.mark.complete("conda d")
     def test_top_level_partial_cmds(self, completion):
         assert completion
@@ -114,6 +118,16 @@ class TestConda:
             '--use-index-cache',
             '--verbose',
         ]
+
+    @pytest.mark.complete("conda env create -f ")
+    def test_env_create_f(self, completion):
+        assert completion
+        assert 'bashrc' in completion
+
+    @pytest.mark.complete("conda env update -f ")
+    def test_env_update_f(self, completion):
+        assert completion
+        assert 'bashrc' in completion
 
     @pytest.mark.complete("conda build ")
     def test_build_sub_comands(self, completion):
